@@ -1,0 +1,1 @@
+<h2><?php __('Erreur')?> <?php echo $erreur ?></h2>
