@@ -1,3 +1,0 @@
-2010-12-11 17:38:07 Warning: Warning (512): /media/d/workspace_php/redmine-php/app/tmp/cache/ is not writable in [/home/steve/phplib/cakephp/cake/libs/cache/file.php, line 267]
-2010-12-11 17:38:07 Warning: Warning (512): /persistent/ is not writable in [/home/steve/phplib/cakephp/cake/libs/cache/file.php, line 267]
-2010-12-11 17:38:07 Warning: Warning (512): /models/ is not writable in [/home/steve/phplib/cakephp/cake/libs/cache/file.php, line 267]
