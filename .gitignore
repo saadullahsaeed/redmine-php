@@ -1,9 +1,9 @@
 .project
 Thumbs.db
 pom.xml
-tmp/cache/models/*
-tmp/cache/persistent/*
-tmp/cache/views/*
-tmp/logs/*
-tmp/sessions/*
-tmp/tests/*
+app/tmp/cache/models/cake_*
+app/tmp/cache/persistent/cake_*
+app/tmp/cache/views/cake_*
+app/tmp/logs/*
+app/tmp/sessions/*
+app/tmp/tests/*
