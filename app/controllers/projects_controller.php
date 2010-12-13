@@ -1,6 +1,6 @@
 <?php
 class ProjectsController extends AppController {
-    var $name = 'Project';
+    var $name = 'Projects';
 
     function index() {
         $projects = $this->Project->find('all',
