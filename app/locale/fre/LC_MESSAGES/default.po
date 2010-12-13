@@ -1,13 +1,56 @@
-msgid "Projects"
-msgstr "Projets"
+#
+# Redmine
+#
+msgid "Administrator"
+msgstr "Administrateur"
+msgid "Comments"
+msgstr "Commentaires"
+msgid "Description"
+msgstr "Déscription"
+msgid "Developer"
+msgstr "Développeur"
 msgid "Help"
 msgstr "Aide"
-msgid "Sign in"
-msgstr "Connexion"
-msgid "Register"
-msgstr "S'enregistrer"
 msgid "Home"
 msgstr "Accueil"
+msgid "Manager"
+msgstr "Manager"
+msgid "Name"
+msgstr "Nom"
+msgid "Reporter"
+msgstr "Rapporteur"
+msgid "Password"
+msgstr "Mot de passe"
+msgid "Project"
+msgstr "Projet"
+msgid "Projects"
+msgstr "Projets"
+msgid "Register"
+msgstr "S'enregistrer"
+msgid "Role"
+msgstr "Rôle"
+msgid "Sign in"
+msgstr "Connexion"
+msgid "User"
+msgstr "Utilisateur"
+
+#
+# Formats
+#
+msgid "date_format"
+msgstr "%d/%m/%Y"
+msgid "time_format"
+msgstr "%d/%m/%Y %H:%M"
+
+#
+# Commons
+#
+msgid "and"
+msgstr "et"
+msgid "No"
+msgstr "Non"
+msgid "Yes"
+msgstr "Oui"
 
 #
 # Scaffold
@@ -124,3 +167,21 @@ msgid "November"
 msgstr "Novembre"
 msgid "December"
 msgstr "Décembre"
+
+#
+# Jours
+#
+msgid "Monday"
+msgstr "Lundi"
+msgid "Tuesday"
+msgstr "Mardi"
+msgid "Wednesday"
+msgstr "Mercredi"
+msgid "Thursday"
+msgstr "Jeudi"
+msgid "Friday"
+msgstr "Vendredi"
+msgid "Saturday"
+msgstr "Samedi"
+msgid "Sunday"
+msgstr "Dimanche"
