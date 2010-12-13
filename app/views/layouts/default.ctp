@@ -18,8 +18,8 @@
 	    </div>
     
     	<ul>
-    		<li><?php echo $this->Html->link(__('Home', false), array('controller' => 'welcome'); ?></li>
-			<li><?php echo $this->Html->link(__('Projects', false), array('controller' => 'projects'); ?></li>
+    		<li><?php echo $this->Html->link(__('Home', false), array('controller' => 'welcome')); ?></li>
+			<li><?php echo $this->Html->link(__('Projects', false), array('controller' => 'projects')); ?></li>
 			<li><a href="http://www.redmine.org/guide" class="help"><?php __("Help")?></a></li>
 		</ul>
 	</div>
