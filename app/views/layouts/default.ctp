@@ -12,14 +12,14 @@
 	<div id="top-menu">
 		<div id="account">
 			<ul>
-				<li><a href="/login" class="login"><?php __("Sign in")?></a></li>
-				<li><a href="/account/register" class="register"><?php __("Register")?></a></li>
+				<li><?php echo $this->Html->link(__('Sign in', false), array('controller' => 'account', 'action' => 'login')); ?></li>
+				<li><?php echo $this->Html->link(__('Register', false), array('controller' => 'account', 'action' => 'register')); ?></li>
 			</ul>
 	    </div>
     
     	<ul>
-    		<li><a href="/" class="home"><?php __("Home")?></a></li>
-			<li><a href="/projects" class="projects"><?php __("Projects")?></a></li>
+    		<li><?php echo $this->Html->link(__('Home', false), array('controller' => 'welcome'); ?></li>
+			<li><?php echo $this->Html->link(__('Projects', false), array('controller' => 'projects'); ?></li>
 			<li><a href="http://www.redmine.org/guide" class="help"><?php __("Help")?></a></li>
 		</ul>
 	</div>
