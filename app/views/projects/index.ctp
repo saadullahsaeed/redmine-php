@@ -5,8 +5,8 @@
             <?php foreach ($projects as $project): ?>
             <li class="root">
                 <div class="root">
-                    <a href="/projects/<?php echo $project->id?>" class="project"><?php echo $project->name?></a>
-                    <div class="wiki description"><?php echo $project->description?></div>
+                    <a href="/projects/<?php echo $project['Project']['id']?>" class="project"><?php echo $project['Project']['name']?></a>
+                    <div class="wiki description"><?php echo $project['Project']['description']?></div>
                 </div>
             </li>
             <?php endforeach; ?>
