@@ -1,6 +1,7 @@
 .project
 Thumbs.db
 pom.xml
+app/config/database.php
 app/tmp/cache/models/cake_*
 app/tmp/cache/persistent/cake_*
 app/tmp/cache/views/cake_*
