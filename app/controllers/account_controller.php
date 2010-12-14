@@ -1,0 +1,44 @@
+<?php
+class AccountController extends AppController {
+	var $name = 'Account';
+	
+	var $uses = array('Token');
+	
+	function login() {
+		if (!empty($_GET)) {
+			$this->logout_user();
+		} else {
+			$this->authenticate_user();
+		}
+	}
+	
+	function logout_user() {
+		if ($this->User->current()->logged()) {
+      		$current_user = $this->User->current();
+      		$this->Token->deleteAll(array('Token.user_id' => $current_user['User']['id'], 'Token.action' => 'autologin');
+      		$this->logged_user(null);
+      	}
+	}
+	
+	function authenticate_user() {
+		$this->password_authentication();
+	}
+	
+	function password_authentication() {
+		$user = $this->User->try_to_login($this->data['User']['username'], $this->data['User']['password']);
+		
+		if (empty($user)) {
+			$this->invalid_credentials();
+		} else {
+			$this->successful_authentication($user);
+		}
+	}
+	
+	function invalid_credentials() {
+	
+	}
+	
+	function successful_authentication($user) {
+	
+	}
+}
