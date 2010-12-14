@@ -7,13 +7,21 @@ class ProjectsController extends AppController {
             array('conditions' => array('Project.is_public' => 1)));
         $this->set('projects', $projects);
 
-        $this->pageTitle = __('Projects', true);
+		$this->set('title_for_layout', __('Projects', true));
     }
 
-    function view($id) {
+    function overview($id) {
         $project = $this->Project->findById($id);
         $this->set('project', $project);
 
-        $this->pageTitle = $project['Project']['name'];
+		$this->set('title_for_layout', $project['Project']['name']);
+		
+		$this->set('main_menu', array(
+			array(
+				'label' => __('Overview', true),
+				'url' => array('controller' => 'projects', 'action' => 'overview', $id),
+				'class' => 'overview selected'
+			)
+		));
     }
 }

@@ -5,7 +5,7 @@
             <?php foreach ($projects as $project): ?>
             <li class="root">
                 <div class="root">
-                    <?php echo $this->Html->link($project['Project']['name'], array('controller' => 'projects', 'action' => 'view', $project['Project']['id']), array('class'=>'project')); ?>
+                    <?php echo $this->Html->link($project['Project']['name'], array('controller' => 'projects', 'action' => 'overview', $project['Project']['id']), array('class'=>'project')); ?>
                     <div class="wiki description"><?php echo $project['Project']['description']?></div>
                 </div>
             </li>
