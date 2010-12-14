@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://developers.facebook.com/schema/">
 <head profile="http://gmpg.org/xfn/11">
-    <title><?php __("Redmine PHP")?></title>
+    <title><?php echo $title_for_layout?></title>
     <?php echo $html->charset(); ?>
     <?php echo $html->css('application'); ?>
     <?php echo $javascript->link('http://code.jquery.com/jquery-pack.min.js'); ?>
