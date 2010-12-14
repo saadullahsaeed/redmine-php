@@ -4,5 +4,5 @@ class Member extends AppModel {
 
     var $belongsTo = array('User', 'Project');
 
-    var $hasMany = 'Role'; 
+    var $hasMany = 'MemberRole'; 
 }
