@@ -2,5 +2,9 @@
 class Role extends AppModel {
     var $name = 'Role';
 
-    var $hasMany = 'Member'; 
+    var $hasMany = array(
+        'MemberRole' => array(
+            'dependent'=> true
+        )
+    ); 
 }
