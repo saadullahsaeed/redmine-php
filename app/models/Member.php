@@ -4,5 +4,9 @@ class Member extends AppModel {
 
     var $belongsTo = array('User', 'Project');
 
-    var $hasMany = 'MemberRole'; 
+    var $hasMany = array(
+        'MemberRole' => array(
+            'dependent'=> true
+        )
+    ); 
 }
