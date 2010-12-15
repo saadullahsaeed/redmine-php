@@ -38,7 +38,6 @@
 	<div id="footer">
 		<?php __("Redmine PHP")?>  &copy; <?php echo date('Y')?> <?php echo $html->link('Steve Grosbois', 'http://www.steve-grosbois.com') ;?>
 	</div>
-        <?php echo $cakeDebug; ?>
 </div>
 </body>
 </html>
