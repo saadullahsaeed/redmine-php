@@ -12,7 +12,7 @@ class User extends AppModel {
 
         const HASH_TYPE = 'sha1';
 	
-	function current_user() {
+	function current() {
 		if (empty($this->current_user)) {
 			$this->current_user = $this->anonymous();
 		} else if ($anonymous_user['User']['lastname'] != 'Anonymous') {
