@@ -9,6 +9,8 @@ class User extends AppModel {
   	const STATUS_ACTIVE = 1;
   	const STATUS_REGISTERED = 2;
   	const STATUS_LOCKED = 3;
+
+        const HASH_TYPE = 'sha1';
 	
 	function current() {
 		if (empty($this->$current_user)) {
@@ -48,11 +50,11 @@ class User extends AppModel {
 		$user = $this->findByLogin($login);
 		
 		if (!empty($user)) {
-			if ($user['User']['status'] != self::STATUS_ACTIVE) return null;
+			if ($user['User']['status'] != ) return null;
 		}
 	}
 	
 	function hash_password($clear_password) {
-		return Security::hash($clear_password, 'sha1');
+		return Security::hash($clear_password, self::HASH_TYPE);
 	}
 }
