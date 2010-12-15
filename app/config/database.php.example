@@ -6,7 +6,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'redmine',
 		'password' => 'redmine',
-		'database' => 'redmine-php',
+		'database' => 'redmine',
 		'prefix' => '',
         'encoding' => 'utf8'
 	);
