@@ -5,10 +5,10 @@ class User extends AppModel {
 	var $current_user;
 	
 	# Account statuses
- 	var $STATUS_ANONYMOUS = 0;
-  	var $STATUS_ACTIVE = 1;
-  	var $STATUS_REGISTERED = 2;
-  	var $STATUS_LOCKED = 3;
+ 	const STATUS_ANONYMOUS = 0;
+  	const STATUS_ACTIVE = 1;
+  	const STATUS_REGISTERED = 2;
+  	const STATUS_LOCKED = 3;
 	
 	function current() {
 		if (empty($this->$current_user)) {
@@ -48,11 +48,11 @@ class User extends AppModel {
 		$user = $this->findByLogin($login);
 		
 		if (!empty($user)) {
-			if ($user['User']['status'] != $STATUS_ACTIVE) return null;
+			if ($user['User']['status'] != self::STATUS_ACTIVE) return null;
 		}
 	}
 	
 	function hash_password($clear_password) {
-		//TODO return Digest::SHA1.hexdigest(clear_password || "");
+		return Security::hash($clear_password, 'sha1');
 	}
 }
