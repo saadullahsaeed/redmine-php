@@ -5,7 +5,7 @@ class AccountController extends AppController {
 	var $uses = array('Token');
 	
 	function login() {
-		if (!empty($_GET)) {
+		if (!empty($this->params['pass'])) {
 			$this->logout_user();
 		} else {
 			$this->authenticate_user();
