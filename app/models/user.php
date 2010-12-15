@@ -50,7 +50,7 @@ class User extends AppModel {
 		$user = $this->findByLogin($login);
 		
 		if (!empty($user)) {
-			if ($user['User']['status'] != ) return null;
+			if ($user['User']['status'] != STATUS_ACTIVE) return null;
 		}
 	}
 	
