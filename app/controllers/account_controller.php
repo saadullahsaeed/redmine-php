@@ -13,7 +13,8 @@ class AccountController extends AppController {
 	}
 	
 	function logout_user() {
-                $current_user = $this->User->current_user();
+                debug(method_exists($this->User , 'current'));
+                $current_user = $this->User->current();
       		if ($current_user['User']['logged']) {
       		    $this->Token->deleteAll(array('Token.user_id' => $current_user['User']['id'], 'Token.action' => 'autologin'));
       		    $this->logged_user(null);
