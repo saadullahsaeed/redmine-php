@@ -19,7 +19,7 @@ class NestedSetBehavior extends TreeBehavior {
 	foreach ($nodes as $i => $node) {
 		$children = $this->tree($Model, $conditions, $fields, $order, $limit, $page, $recursive, $node[$Model->name][$Model->primaryKey]);
 		if (!empty($children)) {
-			$node[$Model->name][Inflector::pluralize($Model->name)] = 
+			$node[$Model->name][Inflector::pluralize($Model->name)] = $children;
 			$nodes[$i] = $node;
 		}
 	}
