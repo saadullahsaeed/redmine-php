@@ -5,7 +5,7 @@ class ProjectsController extends AppController {
 
     function index() {
         $projects = $this->Project->find('all', array('conditions' => array('Project.is_public' => 1)));
-        debug(projects);
+        debug($projects);
         $this->set('projects', $projects);
         $this->set('title_for_layout', __('Projects', true));
     }
