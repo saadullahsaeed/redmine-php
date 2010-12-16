@@ -15,8 +15,8 @@ class ProjectsHelper extends AppHelper {
       $ancestors = array();
       foreach ($projects as $project) {
         $this->project = $project;
-        //if (empty($ancestors) || $project->is_descendant_of($ancestors[count($ancestors)-1])) {
-          // TODO
+        //if (empty($ancestors) || $project->is_descendant_of(end($ancestors)) {
+          // $s .= "<ul class='projects #{ ancestors.empty? ? 'root' : nil}'>\n";
         //}
       }
     }
