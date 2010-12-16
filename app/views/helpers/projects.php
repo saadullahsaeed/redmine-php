@@ -1,6 +1,6 @@
 <?php
-var $helpers = array('Html');
 class ProjectsHelper extends AppHelper {
+  var $helpers = array('Html');
 
   var $project;
 
@@ -16,8 +16,17 @@ class ProjectsHelper extends AppHelper {
       foreach ($projects as $project) {
         $this->project = $project;
         //if (empty($ancestors) || $project->is_descendant_of(end($ancestors)) {
-          // $s .= "<ul class='projects #{ ancestors.empty? ? 'root' : nil}'>\n";
+          $s .= "<ul class='projects ".(empty($ancestors)?'root':null)."'>\n";
+        //} else {
+
         //}
+        $classes = (empty($ancestors)?'root':'child');
+        $s .= "<li class='$classes'><div class='$classes'>";
+        // link_to_project(project, {}, :class => "project #{User.current.member_of?(project) ? 'my-project' : nil}")
+        $s .= $this->Html->link($project['Project']['name'], array('controller' => 'projects', 'action' => 'overview', $project['Project']['id']), array('class'=>'project'));
+        $s .= "<div class='wiki description'>".$project['Project']['description']."</div>";
+        $s .= "</div>\n";
+        $ancestors[] = $project;
       }
     }
     return $s;
