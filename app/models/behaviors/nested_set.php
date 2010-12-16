@@ -17,7 +17,7 @@ class NestedSetBehavior extends TreeBehavior {
 		$nodes = $Model->find('all', compact('conditions', 'fields', 'order', 'limit', 'page', 'recursive'));
 	}
 	foreach ($nodes as $node) {
-		$node[$Model.'s'] = tree(&$Model, $conditions, $fields, $order, $limit, $page, $recursive, $node[$Model][$Model->primaryKey]);
+		$node[$Model.'s'] = tree($Model, $conditions, $fields, $order, $limit, $page, $recursive, $node[$Model][$Model->primaryKey]);
 	}
   }
 }
