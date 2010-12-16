@@ -20,7 +20,8 @@ class ProjectsHelper extends AppHelper {
         if (empty($ancestors) || $project['Project']['parent_id'] == $ancestor['Project']['id']) {
           $s .= "<ul class='projects ".(empty($ancestors)?'root':null)."'>\n";
         } else {
-          $ancestor = array_pop($ancestors);
+          array_pop($ancestors);
+          $ancestor = end($ancestors);
           $s .= "</li>";
           while (!empty($ancestors) && $project['Project']['parent_id'] != $ancestor['Project']['id']) {
             array_pop($ancestors);
