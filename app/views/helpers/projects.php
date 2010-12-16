@@ -16,12 +16,13 @@ class ProjectsHelper extends AppHelper {
       $orginal_project = $this->project;
       foreach ($projects as $project) {
         $this->project = $project;
-        if (empty($ancestors) || $project['Project']['parent_id'] == end($ancestors)['Project']['id']) {
+        $ancestor = end($ancestors);
+        if (empty($ancestors) || $project['Project']['parent_id'] == $ancestor['Project']['id']) {
           $s .= "<ul class='projects ".(empty($ancestors)?'root':null)."'>\n";
         } else {
-          array_pop($ancestors);
+          $ancestor = array_pop($ancestors);
           $s .= "</li>";
-          while (!empty($ancestors) && $project['Project']['parent_id'] != end($ancestors)['Project']['id']) {
+          while (!empty($ancestors) && $project['Project']['parent_id'] != $ancestor['Project']['id']) {
             array_pop($ancestors);
             $s .= "</ul></li>\n";
           }
