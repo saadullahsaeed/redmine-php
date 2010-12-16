@@ -1,10 +1,10 @@
 <?php
 class Project extends AppModel {
-    var $name = 'NestedSet';
+    var $name = 'Project';
 
     var $order = 'name';
 
-    var $actsAs = array('Tree' => array(
+    var $actsAs = array('NestedSet' => array(
         'left'  => 'lft',
         'right' => 'rgt'
     ));
