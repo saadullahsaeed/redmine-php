@@ -17,8 +17,8 @@ class ProjectsHelper extends AppHelper {
 		$s .= $this->Html->link($project['Project']['name'], array('controller' => 'projects', 'action' => 'overview', $project['Project']['id']), array('class'=>'project'));
         $s .= "<div class='wiki description'>".$project['Project']['description']."</div>";
         $s .= "</div>\n";
-		if (!empty($project['Projects'])) {
-			$s .= $this->render_project_hierarchy($project['Projects'], false);
+		if (!empty($project['Project']['Projects'])) {
+			$s .= $this->render_project_hierarchy($project['Project']['Projects'], false);
 		}
 		$s .= "</li>";
     }
