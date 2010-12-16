@@ -13,13 +13,19 @@ class ProjectsHelper extends AppHelper {
     $s = '';
     if (!empty($projects)) {
       $ancestors = array();
+      $orginal_project = $this->project;
       foreach ($projects as $project) {
         $this->project = $project;
-        //if (empty($ancestors) || $project->is_descendant_of(end($ancestors)) {
+        if (empty($ancestors) || $project['Project']['parent_id'] == end($ancestors)['Project']['id']) {
           $s .= "<ul class='projects ".(empty($ancestors)?'root':null)."'>\n";
-        //} else {
-
-        //}
+        } else {
+          array_pop($ancestors);
+          $s .= "</li>";
+          while (!empty($ancestors) && $project['Project']['parent_id'] != end($ancestors)['Project']['id']) {
+            array_pop($ancestors);
+            $s .= "</ul></li>\n";
+          }
+        }
         $classes = (empty($ancestors)?'root':'child');
         $s .= "<li class='$classes'><div class='$classes'>";
         // link_to_project(project, {}, :class => "project #{User.current.member_of?(project) ? 'my-project' : nil}")
@@ -28,6 +34,8 @@ class ProjectsHelper extends AppHelper {
         $s .= "</div>\n";
         $ancestors[] = $project;
       }
+      for($i = 0; i < count($ancestors); $i ++) $s .= "</li></ul>\n";
+      $this->project = $orginal_project;
     }
     return $s;
   }
