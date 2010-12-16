@@ -35,7 +35,7 @@ class ProjectsHelper extends AppHelper {
         $s .= "</div>\n";
         $ancestors[] = $project;
       }
-      for($i = 0; i < count($ancestors); $i ++) $s .= "</li></ul>\n";
+      for($i = 0; $i < count($ancestors); $i++) $s .= "</li></ul>\n";
       $this->project = $orginal_project;
     }
     return $s;
