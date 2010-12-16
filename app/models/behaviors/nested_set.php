@@ -12,12 +12,14 @@ class NestedSetBehavior extends TreeBehavior {
 	extract($this->settings[$Model->alias]);
 	if ($id == null) {
 		$nodes = $this->roots($Model, $conditions, $fields, $order, $limit, $page, $recursive);
+		debug($nodes);
 	} else {
 		$conditions = array($Model->escapeField($parent) => $id, $conditions);
 		$nodes = $Model->find('all', compact('conditions', 'fields', 'order', 'limit', 'page', 'recursive'));
+		debug($nodes);
 	}
 	foreach ($nodes as $node) {
-		$node[$Model.'s'] = tree($Model, $conditions, $fields, $order, $limit, $page, $recursive, $node[$Model][$Model->primaryKey]);
+		$node[$Model][$Model.'s'] = tree($Model, $conditions, $fields, $order, $limit, $page, $recursive, $node[$Model][$Model->primaryKey]);
 	}
   }
 }
