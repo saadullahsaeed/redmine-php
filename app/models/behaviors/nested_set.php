@@ -8,16 +8,16 @@ class NestedSetBehavior extends TreeBehavior {
     return $Model->find('all', compact('conditions', 'fields', 'order', 'limit', 'page', 'recursive'));
   }
 
-  function tree(&$Model, $conditions = null, $fields = null, $order = null, $limit = null, $page = 1, $recursive = null, $id = null) {
+  function tree(&$Model, $originalConditions = null, $fields = null, $order = null, $limit = null, $page = 1, $recursive = null, $id = null) {
 	extract($this->settings[$Model->alias]);
 	if ($id == null) {
-		$nodes = $this->roots($Model, $conditions, $fields, $order, $limit, $page, $recursive);
+		$nodes = $this->roots($Model, $originalConditions, $fields, $order, $limit, $page, $recursive);
 	} else {
-		$conditions = array($Model->escapeField($parent) => $id, $conditions);
+		$conditions = array($Model->escapeField($parent) => $id, $originalConditions);
 		$nodes = $Model->find('all', compact('conditions', 'fields', 'order', 'limit', 'page', 'recursive'));
 	}
 	foreach ($nodes as $i => $node) {
-		$children = $this->tree($Model, $conditions, $fields, $order, $limit, $page, $recursive, $node[$Model->name][$Model->primaryKey]);
+		$children = $this->tree($Model, $originalConditions, $fields, $order, $limit, $page, $recursive, $node[$Model->name][$Model->primaryKey]);
 		if (!empty($children)) {
 			$node[$Model->name][Inflector::pluralize($Model->name)] = $children;
 			$nodes[$i] = $node;
