@@ -4,7 +4,8 @@ class ProjectsController extends AppController {
     var $helpers = array('Projects');
 
     function index() {
-        $projects = $this->Project->generatetreelist(array('Project.is_public' => 1), null, null, null);
+        $projects = $this->Project->find('all', array('conditions' => array('Project.is_public' => 1)));
+        debug(projects);
         $this->set('projects', $projects);
         $this->set('title_for_layout', __('Projects', true));
     }
