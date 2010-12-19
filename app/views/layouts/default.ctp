@@ -34,9 +34,18 @@
     		</div>
 		<?php } ?>
 	</div>
-	<?php echo $content_for_layout; ?>
+	<div id="main" class="<?php if(empty($sidebar)) echo 'nosidebar'; ?>">
+		<div id="sidebar"><?php echo $sidebar; ?></div>
+		<div id="content">
+			<?php $flash = $session->flash();
+			if(!empty($flash)) { ?>
+				<?php echo $flash; ?>
+			<?php } ?>
+			<?php echo $content_for_layout; ?>
+		</div>
+	</div>
 	<div id="footer">
-		<?php __("Redmine PHP")?>  &copy; <?php echo date('Y')?> <?php echo $html->link('Steve Grosbois', 'http://www.steve-grosbois.com') ;?>
+		<?php __("Powered by")?> <?php __("Redmine PHP")?>  &copy; <?php echo date('Y')?> <?php echo $html->link('Steve Grosbois', 'http://www.steve-grosbois.com') ;?>
 	</div>
         <?php echo $this->element('sql_dump'); ?>
 </div>

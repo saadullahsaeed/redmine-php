@@ -1,6 +1,6 @@
 <?php
 class AppController extends Controller {
-	var $helpers = array('Javascript', 'Html', 'Form');
+	var $helpers = array('Javascript', 'Html', 'Form', 'Session');
 	
 	var $uses = array('User');
 	

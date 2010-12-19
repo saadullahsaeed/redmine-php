@@ -2,10 +2,10 @@
 class AccountController extends AppController {
 	var $name = 'Account';
 	
-	var $uses = array('Token');
+	var $uses = array('Token', 'User');
 	
 	function login() {
-		if (!empty($this->params['pass'])) {
+		if (empty($this->data['User']['password'])) {
 			$this->logout_user();
 		} else {
 			$this->authenticate_user();
@@ -13,11 +13,11 @@ class AccountController extends AppController {
 	}
 	
 	function logout_user() {
-                $current_user = $user->User->current();
+            $current_user = $this->User->current();
       		if ($current_user['User']['logged']) {
       		    $this->Token->deleteAll(array('Token.user_id' => $current_user['User']['id'], 'Token.action' => 'autologin'));
       		    $this->logged_user(null);
-      	        }
+      	    }
 	}
 	
 	function authenticate_user() {
@@ -35,10 +35,10 @@ class AccountController extends AppController {
 	}
 	
 	function invalid_credentials() {
-	
+		$this->Session->setFlash(__("Failed login for", true)." '".$this->data['User']['username']."'", 'default', array('class' => 'flash error'));
 	}
 	
 	function successful_authentication($user) {
-	
+		 $this->logged_user($user);
 	}
 }
