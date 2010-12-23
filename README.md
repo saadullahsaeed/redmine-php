@@ -1,4 +1,4 @@
-[Redmine PHP](http://kwiky.github.com/redmine-php/)
+[Redmine PHP](http://www.redminephp.org)
 ================================
 
-Currently in development...
+Currently in development... Feel free to help us !!!!
