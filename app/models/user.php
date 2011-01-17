@@ -9,6 +9,11 @@ class User extends AppModel {
 	
 	var $hasMany = array('Member');
 	
+	function member_of($user, $project) {
+		$members = $this->Member->find('first', array('conditions' => array('Member.user_id' => $user['User']['id'], 'Member.project_id' => $project['Project']['id'])));
+		return !empty($members);
+	}
+	
 	/*
 	var $current_user;
 	
