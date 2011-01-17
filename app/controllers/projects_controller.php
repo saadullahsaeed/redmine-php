@@ -2,14 +2,17 @@
 class ProjectsController extends AppController {
     var $name = 'Projects';
     var $helpers = array('Projects');
+	var $uses = array('Project', 'User');
 	
 	function beforeFilter() {
 		$this->Auth->allow('index');
 	}
 
     function index() {
-        $projects = $this->Project->tree(array('Project.is_public' => 1));
-        $this->set('projects', $projects);
+		$logged_user = $this->logged_user();
+		$user = $this->User->findById($logged_user['User']['id']);
+		$projects = $this->Project->visible_by($user);
+		$this->set('projects', $projects);
     }
 
     function overview($id) {

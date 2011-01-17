@@ -1,14 +1,18 @@
 <?php
 class User extends AppModel {
     var $name = 'User';
-	/*
-	var $current_user;
 	
-	# Account statuses
  	const STATUS_ANONYMOUS = 0;
   	const STATUS_ACTIVE = 1;
   	const STATUS_REGISTERED = 2;
   	const STATUS_LOCKED = 3;
+	
+	var $hasMany = array('Member');
+	
+	/*
+	var $current_user;
+	
+	# Account statuses
 
         const HASH_TYPE = 'sha1';
 	
