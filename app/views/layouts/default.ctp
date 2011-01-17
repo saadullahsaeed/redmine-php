@@ -4,6 +4,7 @@
     <title><?php __('Redmine PHP')?> - <?php __($title_for_layout)?></title>
     <?php echo $html->charset(); ?>
     <?php echo $html->css('application'); ?>
+	<?php echo $html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon'));?>
     <?php echo $javascript->link('http://code.jquery.com/jquery-pack.min.js'); ?>
     <?php echo $javascript->link('script'); ?>
 </head>
