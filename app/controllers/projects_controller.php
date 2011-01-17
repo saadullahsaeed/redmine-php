@@ -5,7 +5,7 @@ class ProjectsController extends AppController {
 	var $uses = array('Project', 'Role');
 	
 	function beforeFilter() {
-		$this->Auth->allow('index');
+		$this->Auth->allow('index', 'show');
 	}
 
     function index() {

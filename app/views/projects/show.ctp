@@ -24,3 +24,7 @@
 	} ?>
 	</ul>	
 </div>
+
+<div class="splitcontentright">
+
+</div>
