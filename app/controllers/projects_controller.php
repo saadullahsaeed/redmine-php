@@ -2,11 +2,14 @@
 class ProjectsController extends AppController {
     var $name = 'Projects';
     var $helpers = array('Projects');
+	
+	function beforeFilter() {
+		$this->Auth->allow('index');
+	}
 
     function index() {
         $projects = $this->Project->tree(array('Project.is_public' => 1));
         $this->set('projects', $projects);
-        $this->set('title_for_layout', __('Projects', true));
     }
 
     function overview($id) {
@@ -23,4 +26,11 @@ class ProjectsController extends AppController {
 			)
 		));
     }
+	/*
+	function isAuthorized() {
+        if ($this->action == 'overview') {
+
+        }
+        return true;
+    }*/
 }

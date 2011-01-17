@@ -2,12 +2,12 @@
 	<?php echo $this->Form->create('User', array('url' => array('controller' => 'account', 'action' => 'login'))); ?>
 		<table>
 			<tr>
-			    <td align="right"><label for="username"><?php __('Username');?>:</label></td>
-			    <td align="left"><?php echo $this->Form->input('username', array('label' => false)); ?></td>
+			    <td align="right"><label for="login"><?php __('Username');?>:</label></td>
+			    <td align="left"><?php echo $this->Form->input('login', array('label' => false)); ?></td>
 			</tr>
 			<tr>
-			    <td align="right"><label for="password"><?php __('Password');?>:</label></td>
-			    <td align="left"><?php echo $this->Form->input('password', array('type' => 'password', 'label' => false)); ?></td>
+			    <td align="right"><label for="hashed_password"><?php __('Password');?>:</label></td>
+			    <td align="left"><?php echo $this->Form->input('hashed_password', array('type' => 'password', 'label' => false)); ?></td>
 			</tr>
 			<tr>
 			    <td align="left">

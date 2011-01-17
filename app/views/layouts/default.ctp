@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://developers.facebook.com/schema/">
 <head profile="http://gmpg.org/xfn/11">
-    <title><?php echo __('Redmine PHP')?> - <?php echo $title_for_layout?></title>
+    <title><?php __('Redmine PHP')?> - <?php __($title_for_layout)?></title>
     <?php echo $html->charset(); ?>
     <?php echo $html->css('application'); ?>
     <?php echo $javascript->link('http://code.jquery.com/jquery-pack.min.js'); ?>
@@ -11,20 +11,15 @@
 <div id="wrapper">
 	<div id="top-menu">
 		<div id="account">
-			<ul>
-				<li><?php echo $this->Html->link(__('Sign in', true), array('controller' => 'account', 'action' => 'login')); ?></li>
-				<li><?php echo $this->Html->link(__('Register', true), array('controller' => 'account', 'action' => 'register')); ?></li>
-			</ul>
+			<?php echo $this->Menu->render_menu($account_menu); ?>
 	    </div>
-    
-    	<ul>
-    		<li><?php echo $this->Html->link(__('Home', true), array('controller' => 'welcome')); ?></li>
-			<li><?php echo $this->Html->link(__('Projects', true), array('controller' => 'projects', 'action' => 'index')); ?></li>
-			<li><a href="http://www.redmine.org/guide" class="help"><?php __("Help")?></a></li>
-		</ul>
+		<?php if(!empty($logged_user)) { ?>
+			<div id="loggedas"><?php __('Logged in as'); echo ' '; echo $this->Users->link_to_user($logged_user, array('format' => 'login'));?></div>
+		<?php } ?>
+		<?php echo $this->Menu->render_menu($top_menu); ?>
 	</div>
 	<div id="header">
-		<h1><?php if (empty($h1))  echo $title_for_layout; else echo $h1?></h1>    
+		<h1><?php if (empty($h1)) __($title_for_layout); else __($h1)?></h1>    
     	<?php if (!empty($main_menu)) { ?>
     		<div id="main-menu">
         		<ul>
@@ -37,7 +32,11 @@
 	<div id="main" class="<?php if(empty($sidebar)) echo 'nosidebar'; ?>">
 		<div id="sidebar"><?php echo $sidebar; ?></div>
 		<div id="content">
-			<?php $flash = $session->flash();
+			<?php 
+			$flash = $session->flash('auth');
+			if(empty($flash)) {
+				$flash = $session->flash();
+			}
 			if(!empty($flash)) { ?>
 				<?php echo $flash; ?>
 			<?php } ?>
@@ -45,7 +44,7 @@
 		</div>
 	</div>
 	<div id="footer">
-		<?php __("Powered by")?> <?php __("Redmine PHP")?>  &copy; <?php echo date('Y')?> <?php echo $html->link('Steve Grosbois', 'http://www.steve-grosbois.com') ;?>
+		<?php __("Powered by")?> <?php __("Redmine PHP")?>  &copy; 2010-<?php echo date('Y')?> <?php echo $html->link('Steve Grosbois', 'http://www.steve-grosbois.com') ;?>
 	</div>
         <?php echo $this->element('sql_dump'); ?>
 </div>

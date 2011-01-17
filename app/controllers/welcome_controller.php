@@ -4,7 +4,10 @@ class WelcomeController extends AppController {
 	
 	var $uses = array();
 	
-	function index() {
+	function beforeFilter() {
+		$this->Auth->allow('index');
+	}
 	
+	function index() {	
 	}
 }

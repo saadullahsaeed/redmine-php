@@ -1,6 +1,8 @@
 #
 # Redmine
 #
+msgid "Account"
+msgstr "Compte"
 msgid "Activity"
 msgstr "Activité"
 msgid "Administration"
@@ -31,7 +33,7 @@ msgid "Language"
 msgstr "Langue"
 msgid "Last Name"
 msgstr "Nom"
-msgid "Logged as"
+msgid "Logged in as"
 msgstr "Connecté en tant que"
 msgid "Login"
 msgstr "Connexion"
@@ -75,7 +77,8 @@ msgid "Tag"
 msgstr "Tag"
 msgid "User"
 msgstr "Utilisateur"
-
+msgid "Welcome"
+msgstr "Bienvenue"
 #
 # Formats
 #
@@ -181,6 +184,11 @@ msgid "If you want to customize this error message, create %s"
 msgstr "Si vous voulez personnaliser ce message d'erreur, créez %s"
 msgid "If you want to customize this error message, create %s."
 msgstr "Si vous voulez personnaliser ce message d'erreur, créez %s."
+
+msgid "Login failed. Invalid username or password."
+msgstr "Identification échouée. Identifiant ou mot de passe incorrects."
+msgid "You are not authorized to access that location."
+msgstr "Vous n'êtes pas autorisé à acceder à cette page."
 
 #
 # Mois

@@ -1,15 +1,43 @@
 <?php
 class AppController extends Controller {
-	var $helpers = array('Javascript', 'Html', 'Form', 'Session');
+	var $helpers = array('Javascript', 'Html', 'Form', 'Session', 'Menu', 'Users');
 	
-	var $uses = array('User');
+	var $components = array(
+		'Auth' => array(
+            'loginAction' => array(
+                'controller' => 'account',
+                'action' => 'login'
+            ),
+			'fields' => array(
+				'username' => 'login', 
+				'password' => 'hashed_password'
+			)
+        )
+	);
 	
-	function logged_user($user) {
-		if (!empty($user)) {
-			$this->User->current_user = $user;
-			$this->Session->write('user_id', $user['User']['id']);
+	function beforeRender() {
+		$logged_user = $this->logged_user();
+
+		$top_menu[] = array(__('Home', true), array('controller' => 'welcome'));
+		
+		if (empty($logged_user)) {
+			$account_menu[] = array(__('Sign in', true), array('controller' => 'account', 'action' => 'login'));
+			$account_menu[] = array(__('Register', true), array('controller' => 'account', 'action' => 'register'));
 		} else {
-			$this->User->current_user = $this->User->anonymous();
-		}
+			$account_menu[] = array(__('My account', true), array('controller' => 'my', 'action' => 'account'));
+			$account_menu[] = array(__('Logout', true), array('controller' => 'account', 'action' => 'logout'));
+			$top_menu[] = array(__('My page', true), array('controller' => 'my', 'action' => 'page'));
+		}		
+		
+		$top_menu[] = array(__('Projects', true), array('controller' => 'projects', 'action' => 'index'));
+		$top_menu[] = array(__('Help', true), 'http://www.redmine.org/guide');
+		
+		$this->set('account_menu', $account_menu);
+		$this->set('top_menu', $top_menu);
+		$this->set('logged_user', $logged_user);
+	}
+	
+	function logged_user() {
+		return $this->Auth->user();
 	}
 }

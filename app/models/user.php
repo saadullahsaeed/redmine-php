@@ -1,7 +1,7 @@
 <?php
 class User extends AppModel {
     var $name = 'User';
-	
+	/*
 	var $current_user;
 	
 	# Account statuses
@@ -23,7 +23,7 @@ class User extends AppModel {
 	
   	/**
   	 * Returns the anonymous user. If the anonymous user does not exist, it is created. There can be only one anonymous user per database.
-  	 */
+  	 * /
   	function anonymous() {
 		$anonymous_user = $this->findByLastname('Anonymous');
 		if (empty($anonymous_user)) {
@@ -56,5 +56,5 @@ class User extends AppModel {
 	
 	function hash_password($clear_password) {
 		return Security::hash($clear_password, self::HASH_TYPE);
-	}
+	}*/
 }
