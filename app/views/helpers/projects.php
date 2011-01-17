@@ -14,7 +14,7 @@ class ProjectsHelper extends AppHelper {
 		$classes = ($root?'root':'child');
 		$s .= "<li class='$classes'><div class='$classes'>";
 		// link_to_project(project, {}, :class => "project #{User.current.member_of?(project) ? 'my-project' : nil}")
-		$s .= $this->Html->link($project['Project']['name'], array('controller' => 'projects', 'action' => 'overview', $project['Project']['id']), array('class'=>'project'));
+		$s .= $this->Html->link($project['Project']['name'], array('controller' => 'projects', 'action' => 'show', $project['Project']['identifier']), array('class'=>'project'));
         $s .= "<div class='wiki description'>".$project['Project']['description']."</div>";
         $s .= "</div>\n";
 		if (!empty($project['Project']['Projects'])) {

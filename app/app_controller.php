@@ -2,6 +2,8 @@
 class AppController extends Controller {
 	var $helpers = array('Javascript', 'Html', 'Form', 'Session', 'Menu', 'Users');
 	
+	var $uses = array('User');
+	
 	var $components = array(
 		'Auth' => array(
             'loginAction' => array(
@@ -12,7 +14,8 @@ class AppController extends Controller {
 				'username' => 'login', 
 				'password' => 'hashed_password'
 			)
-        )
+        ),
+		'Session'
 	);
 	
 	function beforeRender() {
@@ -38,6 +41,8 @@ class AppController extends Controller {
 	}
 	
 	function logged_user() {
-		return $this->Auth->user();
+		$logged_user = $this->Auth->user();
+		$user = $this->User->find('first', array('conditions' => array('User.id' => $logged_user['User']['id']), 'recursive' => 3));
+		return $user;
 	}
 }

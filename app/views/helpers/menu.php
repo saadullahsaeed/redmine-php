@@ -6,7 +6,8 @@ class MenuHelper extends AppHelper {
     $s = "<ul>\n";
     foreach ($menu as $item) {
 		$s .= "\t<li>";
-		$s .= $this->Html->link($item[0], $item[1]);
+		if(empty($item[2])) $item[2] = null;
+		$s .= $this->Html->link($item[0], $item[1], $item[2]);
 		$s .= "</li>\n";
     }
 	$s .= '</ul>';

@@ -2,8 +2,10 @@
 class ErrorsController extends AppController
 {
     var $name = 'Errors';
+	
+	var $uses = array();
 
-    function index($erreur = 400) {        
+    function index($erreur = null) {        
         $this->set('erreur', $erreur);
     }
 }

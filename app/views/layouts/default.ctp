@@ -22,10 +22,7 @@
 		<h1><?php if (empty($h1)) __($title_for_layout); else __($h1)?></h1>    
     	<?php if (!empty($main_menu)) { ?>
     		<div id="main-menu">
-        		<ul>
-        		<?php foreach($main_menu as $menu) { ?>
-        			<li><?php echo $this->Html->link($menu['label'], $menu['url'], array('class' => $menu['class'])); ?><li>
-        		<?php } ?>
+				<?php echo $this->Menu->render_menu($main_menu); ?>
     		</div>
 		<?php } ?>
 	</div>
