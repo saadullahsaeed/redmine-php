@@ -1,8 +1,8 @@
 <?php
 class AppController extends Controller {
-	var $helpers = array('Javascript', 'Html', 'Form', 'Session', 'Menu', 'Users');
+	var $helpers = array('Javascript', 'Html', 'Form', 'Session', 'Menu', 'Users', 'Setting', 'Application');
 	
-	var $uses = array('User');
+	var $uses = array('User', 'Setting');
 	
 	var $components = array(
 		'Auth' => array(

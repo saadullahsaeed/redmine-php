@@ -7,7 +7,67 @@ class User extends AppModel {
   	const STATUS_REGISTERED = 2;
   	const STATUS_LOCKED = 3;
 	
-	var $hasMany = array('Member');
+	var $hasMany = array('Member');    
+	
+	var $validate = array(
+        'login' => array(
+			'alphaNumeric' => array(
+				'rule' => '/^[a-z0-9_\-@\.]*$/i',
+				'required' => true,
+				'message' => 'This field is invalid'
+			),
+			'isUnique' => array(
+				'rule' => 'isUnique',
+				'message' => 'Value has already been taken'
+			),
+			'lenght' => array(
+				'rule' => array('maxLength', 30),
+				'message' => 'This field is too long'
+			)
+        ),
+		'password' => array(
+			'rule' => 'alphaNumeric',
+			'required' => true
+        ),
+		'password_confirmation' => array(
+			'rule' => 'alphaNumeric',
+			'required' => true
+        ),
+		'firstname' => array(
+			'alphaNumeric' => array(
+				'rule' => 'alphaNumeric',
+				'required' => true
+			),
+			'lenght' => array(
+				'rule' => array('maxLength', 30),
+				'message' => 'This field is too long'
+			)
+        ),
+		'lastname' => array(
+			'alphaNumeric' => array(
+				'rule' => 'alphaNumeric',
+				'required' => true
+			),
+			'lenght' => array(
+				'rule' => array('maxLength', 30),
+				'message' => 'This field is too long'
+			)
+        ),
+        'mail' => array(
+			'email' => array(
+				'rule' => 'email',
+				'required' => true
+			),
+			'isUnique' => array(
+				'rule' => 'isUnique',
+				'message' => 'Value has already been taken'
+			),
+			'lenght' => array(
+				'rule' => array('maxLength', 60),
+				'message' => 'This field is too long'
+			)
+        )
+    );
 	
 	function member_of($user, $project) {
 		$members = $this->Member->find('first', array('conditions' => array('Member.user_id' => $user['User']['id'], 'Member.project_id' => $project['Project']['id'])));
