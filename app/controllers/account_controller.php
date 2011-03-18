@@ -19,6 +19,7 @@ class AccountController extends AppController {
 		if (empty($this->data)) {
 			$this->data['User']['language'] = $this->Setting->value('default_language');
 		} else {
+			$this->data['User']['hashed_password'] = $this->Auth->password($this->data['User']['password']);
 			$this->data['User']['admin'] = false;
 			$this->data['User']['status'] = User::STATUS_REGISTERED;
 			
