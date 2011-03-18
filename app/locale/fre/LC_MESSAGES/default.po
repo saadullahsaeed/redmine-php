@@ -188,6 +188,8 @@ msgid "If you want to customize this error message, create %s"
 msgstr "Si vous voulez personnaliser ce message d'erreur, créez %s"
 msgid "If you want to customize this error message, create %s."
 msgstr "Si vous voulez personnaliser ce message d'erreur, créez %s."
+msgid "Personalize this page"
+msgstr "Personnaliser cette page"
 
 msgid "Login failed. Invalid username or password."
 msgstr "Identification échouée. Identifiant ou mot de passe incorrects."

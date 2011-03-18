@@ -18,6 +18,14 @@ class AppController extends Controller {
 		'Session'
 	);
 	
+	/**
+	 * Default beforeFilter
+	 */
+	function beforeFilter() {
+		// Set a default title for layout
+		$this->set('title_for_layout', 'Redmine PHP');
+	}
+	
 	function beforeRender() {
 		$logged_user = $this->logged_user();
 
