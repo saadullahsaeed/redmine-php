@@ -12,8 +12,12 @@ class User extends AppModel {
 	var $validate = array(
         'login' => array(
 			'alphaNumeric' => array(
-				'rule' => '/^[a-z0-9_\-@\.]*$/i',
+				'rule' => 'alphaNumeric',
 				'required' => true,
+				'message' => 'This field is invalid'
+			),			
+			'login' => array(
+				'rule' => '/^[a-z0-9_\-@\.]*$/i',				
 				'message' => 'This field is invalid'
 			),
 			'isUnique' => array(
@@ -36,7 +40,8 @@ class User extends AppModel {
 		'firstname' => array(
 			'alphaNumeric' => array(
 				'rule' => 'alphaNumeric',
-				'required' => true
+				'required' => true,
+				'message' => 'This field is invalid'
 			),
 			'lenght' => array(
 				'rule' => array('maxLength', 30),
@@ -46,7 +51,8 @@ class User extends AppModel {
 		'lastname' => array(
 			'alphaNumeric' => array(
 				'rule' => 'alphaNumeric',
-				'required' => true
+				'required' => true,
+				'message' => 'This field is invalid'
 			),
 			'lenght' => array(
 				'rule' => array('maxLength', 30),
@@ -56,7 +62,8 @@ class User extends AppModel {
         'mail' => array(
 			'email' => array(
 				'rule' => 'email',
-				'required' => true
+				'required' => true,
+				'message' => 'This field is invalid'
 			),
 			'isUnique' => array(
 				'rule' => 'isUnique',
