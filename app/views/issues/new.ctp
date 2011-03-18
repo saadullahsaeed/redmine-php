@@ -1,0 +1,1 @@
+<h2><?php echo __('New issue'); ?></h2>
