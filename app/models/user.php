@@ -30,8 +30,15 @@ class User extends AppModel {
 			)
         ),
 		'password' => array(
-			'rule' => 'alphaNumeric',
-			'required' => true
+			'alphaNumeric' => array(
+				'rule' => 'alphaNumeric',
+				'required' => true,
+				'message' => 'This field is invalid'
+			),
+			'identicalFieldValues' => array( 
+				'rule' => array('identicalFieldValues', 'password_confirmation'), 
+				'message' => "Password doesn't match confirmation." 
+			) 
         ),
 		'password_confirmation' => array(
 			'rule' => 'alphaNumeric',

@@ -191,6 +191,8 @@ msgstr "Si vous voulez personnaliser ce message d'erreur, créez %s."
 
 msgid "Login failed. Invalid username or password."
 msgstr "Identification échouée. Identifiant ou mot de passe incorrects."
+msgid "Password doesn't match confirmation."
+msgstr "Mot de passe ne concorde pas avec la confirmation."
 msgid "You are not authorized to access that location."
 msgstr "Vous n'êtes pas autorisé à acceder à cette page."
 msgid "Must be at least %s characters long."
