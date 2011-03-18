@@ -45,6 +45,10 @@ class Project extends AppModel {
 		$role = new Role();
 		$permissions = $role->get_permissions($user, $project);
 		
+		if (in_array ('new_issue', $permissions) || $user['User']['admin'] == 1) {
+			$menu[] = array(__('New issue', true), array('controller' => 'issues', 'action' => 'new', $project['Project']['identifier']), array('class' => 'new-issue'));
+		}
+		
 		if (in_array ('repository', $permissions) || $user['User']['admin'] == 1) {
 			$menu[] = array(__('Repository', true), array('controller' => 'projects', 'action' => 'repository', $project['Project']['identifier']), array('class' => 'repository'));
 		}
